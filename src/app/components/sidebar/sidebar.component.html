@@ -1,0 +1,57 @@
+<!-- SIDE NAV TOGGLE -->
+
+<mat-drawer-container class="example-container h-screen" autosize >
+  <mat-drawer opened="true" #drawer class="example-sidenav w-80" mode="side" >
+    <div class="bg-theme-black p-12 h-full">
+      <div class="flex items-baseline tracking-widest">
+        <p class="text-theme-text-white text-xl font-extrabold -mt-1">Adze.</p>
+        <p class="text-theme-orange text-base font-bold">DESIGN</p>
+      </div>
+
+
+      <!-- NEWS FEED -->
+      <div class="py-12  border-b-2 border-theme-gray">
+        <p class="text-theme-gray mb-4 font-semibold">News Feed</p>
+        <app-bottun-toggle></app-bottun-toggle>
+      </div>
+
+      <!-- FOLLOWING -->
+      <div class="py-12">
+        <p class="text-theme-gray mb-4 font-semibold">Following</p>
+        <app-followings></app-followings>
+      </div>
+
+      <!-- logout -->
+      <span class="flex-1"></span>
+      <div class="flex gap-6 items-center">
+        <img src="../../../assets/images/logout/logout.png" class="-m-4 w-16 h-16" alt="">
+        <p class="font-semibold tracking-wide text-theme-gray">Log Out</p>
+      </div>
+
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content bg-theme-black px-12 flex flex-col h-screen">
+    <div class="flex items-center pt-7">
+
+      <!-- side nav switch -->
+      <button class="bg-theme-orange text-theme-text-white h-12 w-12 -ml-12 mt-2 rounded-br-full rounded-tr-full " type="button" mat-button (click)="drawer.toggle(); showFiller = !showFiller">
+        <span *ngIf="!showFiller" class="material-symbols-rounded">
+          arrow_back_ios
+        </span>
+        <span *ngIf="showFiller" class="material-symbols-rounded">
+          arrow_forward_ios
+        </span>
+      </button>
+
+      <!-- navbar -->
+      <app-navbar class="w-full"></app-navbar>
+    </div>
+
+    <!-- body-content -->
+    <app-content></app-content>
+  </div>
+
+</mat-drawer-container>
+
+

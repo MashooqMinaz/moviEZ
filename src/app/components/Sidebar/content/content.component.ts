@@ -75,6 +75,15 @@ export class ContentComponent {
     },
   }
 
+  math=Math
+
+  ratingcolor(rate:number){
+    if(rate >= 70 ) return "#21d07a";
+    if(rate >= 50 ) return "#d2d531";
+    if(rate <= 49 ) return "#db2360";
+    return "none"
+  }
+
 
 
 }

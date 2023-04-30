@@ -51,16 +51,17 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { BottunToggleComponent } from './components/bottun-toggle/bottun-toggle.component';
-import { FollowingsComponent } from './components/followings/followings.component';
-import { ContentComponent } from './components/content/content.component';
+import { NavbarComponent } from './components/Sidebar/navbar/navbar.component';
+import { SidebarComponent } from './components/Sidebar/sidebar.component';
+import { BottunToggleComponent } from './components/Sidebar/bottun-toggle/bottun-toggle.component';
+import { FollowingsComponent } from './components/Sidebar/followings/followings.component';
+import { ContentComponent } from './components/Sidebar/content/content.component';
 import { RouterModule } from '@angular/router';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 
@@ -128,7 +129,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    DragScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

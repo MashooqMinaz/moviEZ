@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  showFiller = false;
+  sideNavOpened:boolean = true;
+
+  // sideNavToggle(){
+  //   this.sideNavOpened = !this.sideNavOpened
+  // }
 }

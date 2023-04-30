@@ -1,0 +1,10 @@
+
+<div class="flex gap-6 items-center flex-col w-full">
+  <div class="flex items-center gap-4 justify-start w-full cursor-pointer" *ngFor="let button of buttons">
+    <span class="material-symbols-rounded text-3xl filled" [ngClass]="button.isSelected ? 'text-theme-orange' : 'text-theme-gray'" >
+      {{button.icon}}
+    </span>
+    <p class="font-semibold tracking-wide" [ngClass]="button.isSelected ? 'text-theme-text-white' : 'text-theme-gray'">{{button.name}}</p>
+  </div>
+</div>
+

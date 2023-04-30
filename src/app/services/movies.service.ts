@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Type } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { movieResponse, movie, movieDetails } from '../models/movie';
+import { Result, Trending } from '../models/trending';
+import { PopularMovies, popular } from '../models/popular';
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,18 +15,43 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  // trending
-  getTime(category:'tv'|'movie',time: 'day' | 'week'): Observable<movie[]> {
-    return this.http
-      .get<movieResponse>(`${this.base_url}/trending/${category}/${time}`, {
+    // ------------trending------------
+
+
+    TrendingMovie(show:'tv'|'movie',time:'week'|'day'): Observable<Result[]> {
+      return this.http.get<Trending>(`${this.base_url}/trending/${show}/${time}`, {
         params: {
-          api_key: this.api_key,
+          api_key: this.api_key
         }
-      })
-      .pipe(
-        map((res) => res.results )
-      );
-  }
+      }).pipe(map((res) =>{
+        return res.results } ))
+    }
+
+
+    // --------------popular--------------
+
+    getPopular(): Observable<popular[]> {
+      return this.http.get<PopularMovies>(`${this.base_url}/movie/popular`, {
+        params: {
+          api_key: this.api_key
+        }
+      }). pipe(map((res) => {
+        return res.results
+      }))
+    }
+
+  // // trending
+  // getTime(category:'tv'|'movie',time: 'day' | 'week'): Observable<movie[]> {
+  //   return this.http
+  //     .get<movieResponse>(`${this.base_url}/trending/${category}/${time}`, {
+  //       params: {
+  //         api_key: this.api_key,
+  //       }
+  //     })
+  //     .pipe(
+  //       map((res) => res.results )
+  //     );
+  // }
 
 
   // getCategory(category:'tv'|'movie'):Observable<movie[]> {

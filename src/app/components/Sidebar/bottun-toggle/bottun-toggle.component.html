@@ -1,6 +1,5 @@
-
 <div class="flex gap-6 items-center flex-col w-full">
-  <div class="flex items-center gap-4 justify-start w-full cursor-pointer" *ngFor="let button of buttons">
+  <div class="flex items-center gap-4 justify-start w-full cursor-pointer" *ngFor="let button of buttons index as i" (click)="toggleFn(i)">
     <span class="material-symbols-rounded text-3xl filled" [ngClass]="button.isSelected ? 'text-theme-orange' : 'text-theme-gray'" >
       {{button.icon}}
     </span>

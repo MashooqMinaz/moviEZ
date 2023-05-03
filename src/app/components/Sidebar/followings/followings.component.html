@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-7">
-  <div class="flex gap-6 flex-col h-[260px]">
+<div class="flex relative flex-col gap-6">
+  <div class="flex gap-6 flex-col h-[314px] overflow-x-auto">
     <div class="flex items-center gap-3" *ngFor="let avatar of avatars">
       <div class="relative h-8 w-8 rounded-full">
         <img class="absolute object-cover rounded-full" src="{{avatar.avatarImg}}" alt="">
@@ -11,14 +11,16 @@
         wifi
       </span>
     </div>
+    <div #target></div>
   </div>
 
-  <div class="flex items-center gap-6 mt-6">
-    <div class="h-8 w-8 rounded-full bg-theme-orange flex items-center justify-center">
-      <span class="material-symbols-rounded text-theme-text-white">
+  <div class="flex items-center gap-3 group hover:ring-2 ring-theme-orange rounded-2xl cursor-pointer p-[2px] no-selection"
+  (click)="scroll(target)">
+    <div class="h-8 w-8 rounded-full group-hover:bg-theme-orange flex items-center justify-center">
+      <span class="material-symbols-rounded text-theme-orange group-hover:text-theme-text-white">
         keyboard_arrow_down
       </span>
     </div>
-    <p class="text-sm font-medium tracking-wide text-theme-gray">Load more</p>
+    <p class="text-sm font-medium tracking-wide group-hover:text-theme-text-white text-theme-gray">Load more</p>
   </div>
 </div>

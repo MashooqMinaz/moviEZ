@@ -22,11 +22,6 @@ export class FollowingsComponent {
       avatarName: 'Vika.J',
       onlineStatus: false
     },
-    // {
-    //   avatarImg:'https://i.pravatar.cc/150?img=9',
-    //   avatarName: 'Alesanda.B',
-    //   onlineStatus: true
-    // },
     {
       avatarImg:'https://i.pravatar.cc/150?img=47',
       avatarName: 'Anna.S',
@@ -35,9 +30,57 @@ export class FollowingsComponent {
     {
       avatarImg:'https://i.pravatar.cc/150?img=3',
       avatarName: 'Dadd.H',
+      onlineStatus: false
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=49',
+      avatarName: 'Alesanda.B',
       onlineStatus: true
     },
+
+
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=33',
+      avatarName: 'Shahil',
+      onlineStatus: false
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=22',
+      avatarName: 'jithu',
+      onlineStatus: false
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=20',
+      avatarName: 'Aysha',
+      onlineStatus: true
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=51',
+      avatarName: 'Aadhil',
+      onlineStatus: false
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=63',
+      avatarName: 'Faiz',
+      onlineStatus: false
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=64',
+      avatarName: 'Akshay',
+      onlineStatus: true
+    },
+    {
+      avatarImg:'https://i.pravatar.cc/150?img=66',
+      avatarName: 'Albin',
+      onlineStatus: false
+    },
+
   ]
+
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
 
 }
 interface avatarArr{

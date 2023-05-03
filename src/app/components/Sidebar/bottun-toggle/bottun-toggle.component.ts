@@ -24,7 +24,13 @@ export class BottunToggleComponent {
       name: 'Coming Soon'
     },
   ]
-  
+
+
+  toggleFn(i:any){
+
+    this.buttons[i].isSelected = !this.buttons[i].isSelected
+
+  }
 }
 
 interface btnArr{

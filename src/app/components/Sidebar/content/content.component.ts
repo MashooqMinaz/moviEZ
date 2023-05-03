@@ -1,8 +1,10 @@
+import { PopularMovies } from './../../../models/popular';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, switchMap } from 'rxjs';
 import { MovieService } from 'src/app/services/movies.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Result } from 'src/app/models/trending';
+import { popular } from 'src/app/models/popular';
 
 
 
@@ -35,6 +37,7 @@ export class ContentComponent {
   }
 
   TrendingMovies?: Observable<Result[]>;
+  PopularMovies?: Observable<popular[]>;
 
   base_img='https://image.tmdb.org/t/p/original'
 
@@ -43,14 +46,12 @@ export class ContentComponent {
     this.TrendingMovies = this.$filter.pipe(switchMap(({time,show})=>this.service.TrendingMovie(show,time)))
 
 
-  //  -------popular----------
-  // this.popular = this.service.getPopular()
-
-  // this.service.GetDeatils()
-
-
+    //  -------popular----------
+    this.PopularMovies = this.service.getPopular()
 
   }
+
+
   customOptions: OwlOptions = {
     loop: true,
     navSpeed: 400,
@@ -84,6 +85,11 @@ export class ContentComponent {
     return "none"
   }
 
-
+  ratingcolor2(rate:number){
+    if(rate >= 70 ) return "#204529";
+    if(rate >= 50 ) return "#423d0f";
+    if(rate <= 49 ) return "#571435";
+    return "none"
+  }
 
 }

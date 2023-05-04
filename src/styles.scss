@@ -64,3 +64,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: none;
 }
 
+.no-selection{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+

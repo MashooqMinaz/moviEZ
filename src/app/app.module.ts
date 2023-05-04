@@ -62,6 +62,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { DetailsComponent } from './components/Sidebar/details/details.component';
 
 
 
@@ -73,6 +74,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     BottunToggleComponent,
     FollowingsComponent,
     ContentComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

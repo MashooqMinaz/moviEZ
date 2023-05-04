@@ -1,4 +1,4 @@
-import { PopularMovies } from './../../../models/popular';
+import { upcomingResult } from './../../../models/upcoming';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, switchMap } from 'rxjs';
 import { MovieService } from 'src/app/services/movies.service';
@@ -38,6 +38,7 @@ export class ContentComponent {
 
   TrendingMovies?: Observable<Result[]>;
   PopularMovies?: Observable<popular[]>;
+  upcomingMovies?: Observable<upcomingResult[]>;
 
   base_img='https://image.tmdb.org/t/p/original'
 
@@ -49,8 +50,17 @@ export class ContentComponent {
     //  -------popular----------
     this.PopularMovies = this.service.getPopular()
 
+    // ---------- Upcoming ----------
+    this.upcomingMovies = this.service.getUpcoming()
+
   }
 
+
+
+
+
+
+  // -------------------------- OWl elements ------------------------------------
 
   customOptions: OwlOptions = {
     loop: true,
@@ -76,15 +86,44 @@ export class ContentComponent {
     },
   }
 
-  math=Math
+  customOptionTwo: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navText: [
+      '<i class="ti-angle-left"></i>',
+      '<i class="ti-angle-right"></i>',
+    ],
+    navSpeed: 600,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      760: {
+        items: 3
+      },
+      1000: {
+        items: 4
+      }
+    },
+    nav: true
+  }
 
+
+
+  // --------------------------------------- SVG elments ----------------------------
+  math=Math
   ratingcolor(rate:number){
     if(rate >= 70 ) return "#21d07a";
     if(rate >= 50 ) return "#d2d531";
     if(rate <= 49 ) return "#db2360";
     return "none"
   }
-
   ratingcolor2(rate:number){
     if(rate >= 70 ) return "#204529";
     if(rate >= 50 ) return "#423d0f";

@@ -1,8 +1,11 @@
+import { Result } from './../models/trending';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Type } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Result, Trending } from '../models/trending';
+import { Trending } from '../models/trending';
 import { PopularMovies, popular } from '../models/popular';
+import { Details } from '../models/details';
+import { upcoming , upcomingResult  } from '../models/upcoming';
 
 
 @Injectable({
@@ -40,61 +43,31 @@ export class MovieService {
       }))
     }
 
-  // // trending
-  // getTime(category:'tv'|'movie',time: 'day' | 'week'): Observable<movie[]> {
-  //   return this.http
-  //     .get<movieResponse>(`${this.base_url}/trending/${category}/${time}`, {
-  //       params: {
-  //         api_key: this.api_key,
-  //       }
-  //     })
-  //     .pipe(
-  //       map((res) => res.results )
-  //     );
-  // }
+    // ---------------------- Upcoming ----------------
+
+    getUpcoming(): Observable<upcomingResult[]> {
+      return this.http.get<upcoming>(`${this.base_url}/movie/upcoming`, {
+        params: {
+          api_key: this.api_key
+        }
+      }). pipe(map((res) => {
+        return res.results
+      }))
+    }
 
 
-  // getCategory(category:'tv'|'movie'):Observable<movie[]> {
-  //   return this.http.get<movieResponse>(`${this.base_url}/${category}/popular`, {
-  //     params: {
-  //       api_key: this.api_key
-  //     }
-  //   }).pipe(map(res => res.results))
-  // }
+    // ---------------------- details ----------------
 
-  // getSearchMovies(searchKey:string ){
-  //   return this.http.get<movieResponse>(`${this.base_url}/search/movie`, {
-  //     params: {
-  //       api_key: this.api_key,
-  //       query:searchKey
-  //     }
-  //   }).pipe(map(res => res.results))
+    getDetails(id:number,MoT:any): Observable<Details>{
+      return this.http.get<Details>(`${this.base_url}/${MoT}/${id}`,{
+        params:{
+          api_key: this.api_key
+        }
+      }).pipe(map((res)=> {
+        return res
+      }))
+    }
 
-  // }
-
-  // getMovieDetails(movie_id:number){
-  //   return this.http.get<movieDetails>(`${this.base_url}/movie/${movie_id}`, {
-  //     params: {
-  //       api_key:this.api_key,
-  //     }
-  //   })
-  // }
-
-  // getSimilarMovies(movie_id:number){
-  //   return this.http.get<movieResponse>(`${this.base_url}/movie/${movie_id}/similar`, {
-  //     params: {
-  //       api_key:this.api_key,
-  //     }
-  //   }).pipe(map(res=>res.results))
-  // }
-
-  // getReviews(movie_id:number){
-  //   return this.http.get<movieResponse>(`${this.base_url}/movie/${movie_id}/reviews`, {
-  //     params: {
-  //       api_key:this.api_key,
-  //     }
-  //   }).pipe(map(res=>res.results))
-  // }
 }
 
 

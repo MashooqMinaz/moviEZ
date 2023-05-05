@@ -87,14 +87,14 @@ export class ContentComponent {
   }
 
   customOptionTwo: OwlOptions = {
-    loop: true,
+    loop: false,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
     dots: false,
     navText: [
-      '<i class="ti-angle-left"></i>',
-      '<i class="ti-angle-right"></i>',
+      '<p class="text-theme-orange font-extrabold rotate-180"> ➤ </p>',
+      '<p class="text-theme-orange font-extrabold"> ➤ </p>',
     ],
     navSpeed: 600,
     responsive: {
@@ -105,10 +105,10 @@ export class ContentComponent {
         items: 2
       },
       760: {
-        items: 3
+        items: 4
       },
       1000: {
-        items: 4
+        items: 5
       }
     },
     nav: true

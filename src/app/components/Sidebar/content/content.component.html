@@ -64,37 +64,41 @@
       </div>
 
       <!-------------------- CARD - TRENDING -------------------->
-      <drag-scroll>
-        <div class="mt-12 flex w-full gap-6 h-96 no-selection ">
-          <div class="rounded-2xl cursor-pointer active:cursor-col-resize h-full aspect-[4/6] relative" *ngFor="let card of TrendingMovies | async" [routerLink]="['/details',card.id, MoT]">
-            <div class="relative">
-              <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl" src="{{base_img}}/{{card.backdrop_path}}" alt="">
-            </div>
 
-            <!-- card - contents  -->
-            <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
-              <div class="flex flex-col justify-between w-full h-full">
-                <p class="text-theme-text-white text-2xl font-medium">{{ card.title || card.name }}</p>
-                <div>
-                  <div class="flex gap-1">
-                    <p class=" text-gray-400 text-sm font-medium">Rating : </p>
-                    <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
-                  </div>
-                  <p class=" text-theme-text-white text-lg">{{ card.first_air_date || card.release_date }}</p>
-                  <div class="absolute bottom-4 right-4">
-                    <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
-                    <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
-                      <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
-                      <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
-                    </svg>
+        <owl-carousel-o [options]="customOptionTwo">
+          <ng-container *ngFor="let card of TrendingMovies | async">
+            <ng-template class="slide" carouselSlide>
+                <div class="mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-96  aspect-[4/6] relative no-selection"  [routerLink]="['/details',card.id, MoT]" >
+                  <div class="relative">
+                    <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl" src="{{base_img}}/{{card.backdrop_path}}" alt="">
                   </div>
 
+                  <!-- card - contents  -->
+                   <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
+                    <div class="flex flex-col justify-between w-full h-full">
+                      <p class="text-theme-text-white text-2xl font-medium">{{ card.title || card.name }}</p>
+                      <div>
+                        <div class="flex gap-1">
+                          <p class=" text-gray-400 text-sm font-medium">Rating : </p>
+                          <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
+                        </div>
+                        <p class=" text-theme-text-white text-lg">{{ card.first_air_date || card.release_date }}</p>
+                        <div class="absolute bottom-4 right-4">
+                          <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
+                          <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
+                            <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
+                            <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
+                          </svg>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </drag-scroll>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+
 
 
       <!-------------------- CARD - POPULAR -------------------->
@@ -102,37 +106,39 @@
       <div class="mt-16">
         <p class="text-theme-text-white -mt-2 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-theme-orange">What's Popular</p>
 
-        <drag-scroll>
-          <div class="mt-12 flex w-full gap-6 h-96 no-selection">
-            <div class="rounded-2xl cursor-pointer active:cursor-col-resize h-full aspect-[4/6] relative" *ngFor="let card of PopularMovies | async " [routerLink]="['/details',card.id, 'movie']">
-              <div class="relative">
-                <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl " src="{{base_img}}/{{card.backdrop_path}}" alt="">
-              </div>
+        <owl-carousel-o [options]="customOptionTwo">
+          <ng-container  *ngFor="let card of PopularMovies | async ">
+            <ng-template class="slide" carouselSlide>
+              <div class="mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-96  aspect-[4/6] relative no-selection" [routerLink]="['/details',card.id, 'movie']">
+                <div class="relative">
+                  <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl " src="{{base_img}}/{{card.backdrop_path}}" alt="">
+                </div>
 
-              <!-- card - contents  -->
-              <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
-                <div class="flex flex-col justify-between w-full h-full">
-                  <p class="text-theme-text-white text-2xl font-medium">{{ card.title }}</p>
-                  <div>
-                    <div class="flex gap-1">
-                      <p class=" text-gray-400 text-sm font-medium">Rating : </p>
-                      <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
-                    </div>
-                    <p class=" text-theme-text-white text-lg">{{card.release_date }}</p>
-                    <div class="absolute bottom-4 right-4">
-                      <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
-                      <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
-                        <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
-                        <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
-                      </svg>
-                    </div>
+                <!-- card - contents  -->
+                <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
+                  <div class="flex flex-col justify-between w-full h-full">
+                    <p class="text-theme-text-white text-2xl font-medium">{{ card.title }}</p>
+                    <div>
+                      <div class="flex gap-1">
+                        <p class=" text-gray-400 text-sm font-medium">Rating : </p>
+                        <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
+                      </div>
+                      <p class=" text-theme-text-white text-lg">{{card.release_date }}</p>
+                      <div class="absolute bottom-4 right-4">
+                        <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
+                        <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
+                          <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
+                          <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
+                        </svg>
+                      </div>
 
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </drag-scroll>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
       </div>
 
       <!-------------------- CARD - UPCOMING -------------------->
@@ -140,37 +146,41 @@
       <div class="mt-16 pb-16">
         <p class="text-theme-text-white -mt-2 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-theme-orange">Coming Soon</p>
 
-        <drag-scroll>
-          <div class="mt-12 flex w-full gap-6 h-96 no-selection">
-            <div class="rounded-2xl cursor-pointer active:cursor-col-resize h-full aspect-[4/6] relative" *ngFor="let card of upcomingMovies | async " [routerLink]="['/details',card.id, 'movie']">
-              <div class="relative">
-                <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl " src="{{base_img}}/{{card.backdrop_path}}" alt="">
-              </div>
 
-              <!-- card - contents  -->
-              <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
-                <div class="flex flex-col justify-between w-full h-full">
-                  <p class="text-theme-text-white text-2xl font-medium">{{ card.title }}</p>
-                  <div>
-                    <div class="flex gap-1">
-                      <p class=" text-gray-400 text-sm font-medium">Rating : </p>
-                      <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
-                    </div>
-                    <p class=" text-theme-text-white text-lg">{{card.release_date }}</p>
-                    <div class="absolute bottom-4 right-4">
-                      <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
-                      <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
-                        <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
-                        <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
-                      </svg>
-                    </div>
+        <owl-carousel-o [options]="customOptionTwo">
+          <ng-container  *ngFor="let card of upcomingMovies | async " >
+            <ng-template class="slide" carouselSlide>
+              <div class="mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-96 aspect-[4/6] relative no-selection" [routerLink]="['/details',card.id, 'movie']">
+                <div class="relative">
+                  <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl " src="{{base_img}}/{{card.backdrop_path}}" alt="">
+                </div>
 
+                <!-- card - contents  -->
+                <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
+                  <div class="flex flex-col justify-between w-full h-full">
+                    <p class="text-theme-text-white text-2xl font-medium">{{ card.title }}</p>
+                    <div>
+                      <div class="flex gap-1">
+                        <p class=" text-gray-400 text-sm font-medium">Rating : </p>
+                        <p class="text-yellow-300/90 font-medium">{{ card.vote_average | number : '1.1-1' }}</p>
+                      </div>
+                      <p class=" text-theme-text-white text-lg">{{card.release_date }}</p>
+                      <div class="absolute bottom-4 right-4">
+                        <p class="absolute top-3 left-2 text-theme-text-white font-medium">{{math.floor(card.vote_average*10)}}%</p>
+                        <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
+                          <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average*10)" [attr.stroke-dasharray] = "314" stroke-width="9" class="scale-[0.95]"/>
+                          <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average*10)" [attr.stroke-dashoffset] = "(3.14*(100-card.vote_average*10))" [attr.stroke-dasharray] = "314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]"/>
+                        </svg>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </drag-scroll>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+        <p class="text-theme-orange font-extrabold rotate-180"> ➤ </p>
       </div>
 
     </div>

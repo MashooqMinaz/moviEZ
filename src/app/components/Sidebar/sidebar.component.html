@@ -2,7 +2,7 @@
 
 <mat-drawer-container class="example-container h-screen" autosize >
   <mat-drawer opened="{{sideNavOpened}}" #drawer class="example-sidenav w-80" mode="side">
-    <div class="bg-theme-black p-12 h-full">
+    <div class="bg-theme-black py-10 px-12 h-full">
       <div class="flex items-baseline tracking-widest">
         <p class="text-theme-text-white text-xl font-extrabold -mt-1">movie</p>
         <p class="text-theme-orange text-3xl font-bold">EZ</p>
@@ -31,22 +31,9 @@
     </div>
   </mat-drawer>
 
-  <div class="example-sidenav-content bg-theme-black px-12 flex flex-col h-screen overflow-y-auto">
-    <div class="flex items-center pt-7">
-
-      <!-- side nav switch -->
-      <!-- <button class="bg-theme-orange text-theme-text-white h-12 w-12 -ml-12 mt-2 rounded-br-full rounded-tr-full " type="button" mat-button (click)="sideNavToggle()">
-        <span *ngIf="!sideNavOpened" class="material-symbols-rounded">
-          arrow_back_ios
-        </span>
-        <span *ngIf="sideNavOpened" class="material-symbols-rounded">
-          arrow_forward_ios
-        </span>
-      </button> -->
-
-      <!-- navbar -->
-      <app-navbar class="w-full"></app-navbar>
-    </div>
+  <div class="example-sidenav-content bg-theme-black px-12 flex flex-col h-screen w-full overflow-y-auto">
+    <!-- navbar -->
+    <app-navbar></app-navbar>
 
     <!-- body-content -->
     <router-outlet></router-outlet>
@@ -55,3 +42,17 @@
 </mat-drawer-container>
 
 
+
+
+
+
+
+<!-- side nav switch -->
+<!-- <button class="bg-theme-orange text-theme-text-white h-12 w-12 -ml-12 mt-2 rounded-br-full rounded-tr-full " type="button" mat-button (click)="sideNavToggle()">
+  <span *ngIf="!sideNavOpened" class="material-symbols-rounded">
+    arrow_back_ios
+  </span>
+  <span *ngIf="sideNavOpened" class="material-symbols-rounded">
+    arrow_forward_ios
+  </span>
+</button> -->

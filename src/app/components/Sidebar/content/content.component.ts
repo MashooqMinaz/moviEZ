@@ -1,3 +1,4 @@
+import { searchResult } from './../../../models/search';
 import { upcomingResult } from './../../../models/upcoming';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, switchMap } from 'rxjs';
@@ -36,9 +37,12 @@ export class ContentComponent {
       this.$movieOrTv.next(data)
   }
 
-  TrendingMovies?: Observable<Result[]>;
-  PopularMovies?: Observable<popular[]>;
-  upcomingMovies?: Observable<upcomingResult[]>;
+  TrendingMovies!: Observable<Result[]>;
+  PopularMovies!: Observable<popular[]>;
+  upcomingMovies!: Observable<upcomingResult[]>;
+  searchedMovie!: any
+searchT!:any
+
 
   base_img='https://image.tmdb.org/t/p/original'
 
@@ -47,11 +51,19 @@ export class ContentComponent {
     this.TrendingMovies = this.$filter.pipe(switchMap(({time,show})=>this.service.TrendingMovie(show,time)))
 
 
-    //  -------popular----------
+    //  ------- Popular ----------
     this.PopularMovies = this.service.getPopular()
 
     // ---------- Upcoming ----------
     this.upcomingMovies = this.service.getUpcoming()
+
+    // --------- Searching ----------
+    this.service.$searchedMovie.subscribe(val=>{
+       this.searchT = val
+    })
+    this.searchedMovie = this.service.searchResult(this.searchT)
+
+
 
   }
 
@@ -87,28 +99,52 @@ export class ContentComponent {
   }
 
   customOptionTwo: OwlOptions = {
-    loop: false,
+    loop: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
     dots: false,
     navText: [
-      '<p class="text-theme-orange font-extrabold rotate-180"> ➤ </p>',
-      '<p class="text-theme-orange font-extrabold"> ➤ </p>',
+      '<p class="text-theme-orange font-extrabold"> ◄ </p>',
+      '<p class="text-theme-orange font-extrabold"> ► </p>',
     ],
     navSpeed: 600,
     responsive: {
       0: {
         items: 1
       },
+      300: {
+        items: 1.8
+      },
       400: {
-        items: 2
+        items: 2.5
+      },
+      500: {
+        items: 3
+      },
+      570: {
+        items: 2.2
+      },
+      640: {
+        items: 2.6
       },
       760: {
+        items: 3
+      },
+      820:{
+        items: 3.4
+      },
+      900:{
+        items: 3.6
+      },
+      950: {
         items: 4
       },
       1000: {
         items: 5
+      },
+      1200: {
+        items: 6
       }
     },
     nav: true

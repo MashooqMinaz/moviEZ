@@ -1,0 +1,47 @@
+<div class="mt-6 sm:mt-8 md:mt-10 mx-8 sm:mx-10 md:mx-12">
+  <p class="text-theme-gray -mt-2 text-center text-sm sm:text-base md:text-lg lg:text-xl font-medium underline underline-offset-4 decoration-1 md:decoration-2 decoration-theme-orange/40">
+    you searched for : "<span class="text-base sm:text-ls md:text-xl lg:text-2xl text-theme-text-white/75">{{searchedKey}}</span>"
+  </p>
+  <div class="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center md:justify-start">
+    <div *ngFor="let card of searchedMovies | async">
+      <div class="mt-8 sm:mt-10 md:mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-80 sm:h-96 md:h-[26rem] aspect-[4/6] relative no-selection">
+        <div class="relative">
+          <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl"
+            src="{{ base_img }}/{{ card.backdrop_path }}" alt="" />
+        </div>
+
+        <!-- --------------- contents ---------- -->
+        <div class="absolute bottom-0 w-full aspect-[4/2] rounded-b-2xl bg-gradient-to-r from-theme-orange/70 to-theme-orange/20 p-3 overflow-x-scroll">
+          <div class="flex flex-col justify-between w-full h-full">
+            <p class="text-theme-text-white text-2xl font-medium">
+              {{ card.original_title }}
+            </p>
+            <div>
+              <div class="flex gap-1">
+                <p class="text-gray-400 text-sm font-medium">Rating :</p>
+                <p class="text-yellow-300/90 font-medium">
+                  {{ card.vote_average }}
+                </p>
+              </div>
+              <p class="text-theme-text-white text-lg">{{ card.release_date }}</p>
+              <div class="absolute bottom-4 right-4">
+                <p class="absolute top-3 left-2 text-theme-text-white font-medium">
+                  {{ math.floor(card.vote_average * 10) }}%
+                </p>
+                <svg class="rotate-[-90deg]" width="47px" height="47px" viewBox="0 0 100 100">
+                  <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor2(card.vote_average * 10)"
+                    [attr.stroke-dasharray]="314" stroke-width="9" class="scale-[0.95]" />
+                  <circle cx="52" cy="52" r="48" fill="transparent" [attr.stroke]="ratingcolor(card.vote_average * 10)"
+                    [attr.stroke-dashoffset]="
+                      3.14 * (100 - card.vote_average * 10)
+                    " [attr.stroke-dasharray]="314" stroke-width="9" stroke-linecap="round" class="scale-[0.95]" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

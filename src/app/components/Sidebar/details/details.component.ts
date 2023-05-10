@@ -24,10 +24,6 @@ export class DetailsComponent implements OnInit {
         this.genres = val.genres
       })
 
-      // this.movieDetails.subscribe(val=>{
-      //   console.log(val);
-
-      // })
     })
 
   }

@@ -63,7 +63,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { DetailsComponent } from './components/Sidebar/details/details.component';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SearchresultComponent } from './components/Sidebar/searchresult/searchresult.component';
 
 
 @NgModule({
@@ -75,6 +77,7 @@ import { DetailsComponent } from './components/Sidebar/details/details.component
     FollowingsComponent,
     ContentComponent,
     DetailsComponent,
+    SearchresultComponent
   ],
   imports: [
     BrowserModule,
@@ -132,7 +135,10 @@ import { DetailsComponent } from './components/Sidebar/details/details.component
     BrowserAnimationsModule,
     CarouselModule,
     HttpClientModule,
-    DragScrollModule
+    DragScrollModule,
+    FormsModule,
+    CommonModule,
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

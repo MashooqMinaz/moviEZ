@@ -1,9 +1,22 @@
-<div class="flex gap-6 items-center flex-col w-full">
-  <div class="flex items-center gap-4 justify-start w-full cursor-pointer" *ngFor="let button of buttons index as i" (click)="toggleFn(i)">
-    <span class="material-symbols-rounded text-3xl filled" [ngClass]="button.isSelected ? 'text-theme-orange' : 'text-theme-gray'" >
-      {{button.icon}}
+<div class="flex gap-6 items-center flex-col w-full text-theme-gray">
+  <button autofocus class="flex items-center gap-4 focus:text-theme-orange focus:ring-2 ring-theme-orange rounded-3xl pl-3  p-[2px] justify-start w-full cursor-pointer">
+    <span class="material-symbols-rounded text-3xl filled" >
+      schedule
     </span>
-    <p class="font-semibold tracking-wide" [ngClass]="button.isSelected ? 'text-theme-text-white' : 'text-theme-gray'">{{button.name}}</p>
-  </div>
+    <p class="font-semibold tracking-wide">Browse</p>
+  </button>
+  <button class="flex items-center gap-4 focus:text-theme-orange focus:ring-2 ring-theme-orange rounded-3xl pl-3  p-[2px] justify-start w-full cursor-pointer">
+    <span class="material-symbols-rounded text-3xl filled" >
+      favorite
+    </span>
+    <p class="font-semibold tracking-wide">Watch List</p>
+  </button>
+  <button class="flex items-center gap-4 focus:text-theme-orange focus:ring-2 ring-theme-orange rounded-3xl pl-3  p-[2px] justify-start w-full cursor-pointer">
+    <span class="material-symbols-rounded text-3xl filled" >
+      calendar_month
+    </span>
+    <p class="font-semibold tracking-wide">Coming Soon</p>
+  </button>
+
 </div>
 

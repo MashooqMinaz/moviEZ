@@ -1,37 +1,36 @@
-<!-- SIDE NAV TOGGLE -->
 
 <mat-drawer-container class="example-container h-screen" autosize >
-  <mat-drawer opened="{{sideNavOpened}}" #drawer class="example-sidenav w-80" mode="side">
+  <!-- <mat-drawer [opened]="sideNavOpened" #drawer class="example-sidenav w-80" mode="side">
     <div class="bg-theme-black py-10 px-12 h-full">
       <div class="flex items-baseline tracking-widest">
         <p class="text-theme-text-white text-xl font-extrabold -mt-1">movie</p>
         <p class="text-theme-orange text-3xl font-bold">EZ</p>
-      </div>
+      </div> -->
 
 
       <!-- NEWS FEED -->
-      <div class="py-12  border-b-2 border-theme-gray">
-        <p class="text-theme-gray mb-4 font-semibold">News Feed</p>
+      <!-- <div class="py-12  border-b-2 border-theme-gray">
+        <p class="text-theme-text-white/90 mb-4 font-semibold">News Feed</p>
         <app-bottun-toggle></app-bottun-toggle>
-      </div>
+      </div> -->
 
       <!-- FOLLOWING -->
-      <div class="py-12">
-        <p class="text-theme-gray mb-4 font-semibold">Following</p>
+      <!-- <div class="py-12">
+        <p class="text-theme-text-white/90 mb-4 font-semibold">Following</p>
         <app-followings></app-followings>
-      </div>
+      </div> -->
 
       <!-- logout -->
-      <span class="flex-1"></span>
-      <div class="flex gap-6 items-center">
-        <img src="../../../assets/images/logout/logout.png" class="-m-4 w-16 h-16" alt="">
-        <p class="font-semibold tracking-wide text-theme-gray">Log Out</p>
+      <!-- <span class="flex-1"></span>
+      <div class="flex gap-2 items-center cursor-pointer hover:bg-theme-light-black p-2 rounded-xl w-fit group">
+        <img src="../../../assets/images/logout/logout.png" class="-m-4 w-14 h-14 bg-opacity-50" alt="">
+        <p class="font-semibold tracking-wide text-theme-gray group-hover:text-theme-text-white">Log Out</p>
       </div>
 
     </div>
-  </mat-drawer>
+  </mat-drawer> -->
 
-  <div class="example-sidenav-content bg-theme-black px-12 flex flex-col h-screen w-full overflow-y-auto">
+  <div class="example-sidenav-content bg-theme-black sm:px-4 md:px-8 lg:px-12 flex flex-col h-screen w-full overflow-y-auto">
     <!-- navbar -->
     <app-navbar></app-navbar>
 

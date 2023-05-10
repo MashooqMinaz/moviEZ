@@ -6,35 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./bottun-toggle.component.scss']
 })
 export class BottunToggleComponent {
-
-  buttons:btnArr[] = [
-    {
-      isSelected: true,
-      icon: 'schedule',
-      name: 'Browse'
-    },
-    {
-      isSelected: false,
-      icon: 'favorite',
-      name: 'Watch List'
-    },
-    {
-      isSelected: false,
-      icon: 'calendar_month',
-      name: 'Coming Soon'
-    },
-  ]
-
-
-  toggleFn(i:any){
-
-    this.buttons[i].isSelected = !this.buttons[i].isSelected
-
-  }
 }
 
-interface btnArr{
-  isSelected: boolean
-  icon: string
-  name: string
-}

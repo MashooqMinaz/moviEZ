@@ -3,11 +3,10 @@ import { MovieService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent {
-  sideNavOpened:boolean = false;
+  sideNavOpened!:boolean
   constructor(private movieService:MovieService){}
   ngOnInit(): void {
     this.movieService.$toggle.subscribe({

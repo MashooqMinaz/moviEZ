@@ -1,5 +1,4 @@
-import { searchResult } from './../../../models/search';
-import { upcomingResult } from './../../../models/upcoming';
+import { upcomingResult } from '../../../models/upcoming';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, switchMap } from 'rxjs';
 import { MovieService } from 'src/app/services/movies.service';
@@ -8,11 +7,9 @@ import { Result } from 'src/app/models/trending';
 import { popular } from 'src/app/models/popular';
 
 
-
 @Component({
   selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  templateUrl: './content.component.html'
 })
 
 
@@ -30,18 +27,15 @@ export class ContentComponent {
 
   toggle(data:'day'|'week') {
     this.$dayOrWeek.next(data)
-    console.log(this.$dayOrWeek.value)
   }
 
   toggle2(data:'movie'|'tv'){
-      this.$movieOrTv.next(data)
+    this.$movieOrTv.next(data)
   }
 
   TrendingMovies!: Observable<Result[]>;
   PopularMovies!: Observable<popular[]>;
   upcomingMovies!: Observable<upcomingResult[]>;
-  searchedMovie!: any
-searchT!:any
 
 
   base_img='https://image.tmdb.org/t/p/original'
@@ -56,14 +50,6 @@ searchT!:any
 
     // ---------- Upcoming ----------
     this.upcomingMovies = this.service.getUpcoming()
-
-    // --------- Searching ----------
-    this.service.$searchedMovie.subscribe(val=>{
-       this.searchT = val
-    })
-    this.searchedMovie = this.service.searchResult(this.searchT)
-
-
 
   }
 

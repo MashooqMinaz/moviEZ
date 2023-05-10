@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Details } from 'src/app/models/details';
 import { MovieService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  templateUrl: './details.component.html'
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent{
   constructor(private route:ActivatedRoute, private service:MovieService){  }
 
-  id:any
+  id!:string
   movieDetails?:Observable<any>
   genres:any
   ngOnInit(): void {

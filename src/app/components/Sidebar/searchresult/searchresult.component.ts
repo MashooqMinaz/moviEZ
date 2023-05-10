@@ -4,8 +4,7 @@ import { MovieService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-searchresult',
-  templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.scss']
+  templateUrl: './searchresult.component.html'
 })
 export class SearchresultComponent {
 
@@ -13,7 +12,7 @@ export class SearchresultComponent {
   searchedKey!:string
 
   constructor(private route:ActivatedRoute,private movieService:MovieService){
-    route.params.subscribe(val=>{
+    this.route.params.subscribe(val=>{
       const key = val['searchKey'];
       this.searchedMovies  = this.movieService.searchResult(key)
 

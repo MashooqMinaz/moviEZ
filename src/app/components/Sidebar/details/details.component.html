@@ -1,17 +1,17 @@
 <div class="mt-8 relative h-[calc(100vh-160px)] w-full rounded-md overflow-hidden flex items-center justify-center" *ngIf="movieDetails | async as detail">
   <img src="{{base_img}}/{{detail.backdrop_path}}" class="absolute w-full h-full object-cover blur-md" alt="">
 
-  <div class="w-3/4 h-4/6 z-10 rounded-2xl overflow-hidden flex relative">
-    <span class="material-symbols-rounded absolute top-8 right-8 text-white/70 hover:text-white cursor-pointer" routerLink="/">
+  <div class="w-4/6 h-3/4 md:w-3/4 md:h-4/6 z-10 rounded-2xl overflow-hidden flex flex-col lg:flex-row relative">
+    <span class="material-symbols-rounded absolute z-20 top-8 right-8 text-white active:text-theme-orange lg:text-white/70 lg:hover:text-white cursor-pointer" routerLink="/">
       cancel
     </span>
 
-    <div class="w-3/4 h-full relative">
+    <div class="lg:w-3/4 h-full w-full relative">
       <img src="{{base_img}}/{{detail.backdrop_path}}" class="absolute w-full h-full object-cover" alt="">
     </div>
 
     <!-- details -->
-    <div class="w-full h-full bg-black">
+    <div class="w-full h-1/2 lg:h-full bg-black">
       <div class="w-full h-full bg-gradient-to-l from-theme-orange/70 to-theme-orange/40 px-12 py-16 text-white">
         <p class="text-3xl font-extrabold font-sans first-letter:text-red-600 "> {{detail.name|titlecase}}{{detail.title|titlecase}}</p>
         <div class="flex gap-3 mt-4 items-center text-gray-400 font-semibold">

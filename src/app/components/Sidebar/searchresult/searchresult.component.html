@@ -1,13 +1,14 @@
-<div class="mt-6 sm:mt-8 md:mt-10 mx-8 sm:mx-10 md:mx-12">
+<div class="mt-6 sm:mt-8 md:mt-10 mx-8 sm:mx-10 md:mx-12 pb-10 sm:pb-12 md:pb-14">
   <p class="text-theme-gray -mt-2 text-center text-sm sm:text-base md:text-lg lg:text-xl font-medium underline underline-offset-4 decoration-1 md:decoration-2 decoration-theme-orange/40">
     you searched for : "<span class="text-base sm:text-ls md:text-xl lg:text-2xl text-theme-text-white/75">{{searchedKey}}</span>"
   </p>
   <div class="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center md:justify-start">
     <div *ngFor="let card of searchedMovies | async">
-      <div class="mt-8 sm:mt-10 md:mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-80 sm:h-96 md:h-[26rem] aspect-[4/6] relative no-selection">
+      <div class="mt-8 sm:mt-10 md:mt-12 rounded-2xl cursor-pointer active:cursor-col-resize h-80 sm:h-96 md:h-[26rem] aspect-[4/6] relative no-selection"
+      [routerLink]="['/details',card.id, 'movie']">
         <div class="relative">
           <img class="absolute inset-0 object-cover w-full aspect-[1/1] rounded-t-2xl"
-            src="{{ base_img }}/{{ card.backdrop_path }}" alt="" />
+            src="{{ base_img }}/{{ card.backdrop_path || card.poster_path }}" alt="" />
         </div>
 
         <!-- --------------- contents ---------- -->

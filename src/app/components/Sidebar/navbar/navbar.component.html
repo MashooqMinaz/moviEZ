@@ -1,17 +1,20 @@
 <div class="flex items-center h-16 md:ml-8 scale-90 md:scale-100 mt-2 md:mt-6">
 
-  <button mat-icon-button class="md:hidden ring-1 ring-theme-text-white active:ring-theme-text-white/70 p-0 mr-2 flex items-center justify-center" (click)="onOpen(toggleValue)">
-    <svg class="h-8 w-8 text-theme-orange" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 18H10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 12L16 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> </g></svg>
-  </button>
+  <div class="flex md:gap-2">
+    <button mat-icon-button class="ring-1 ring-theme-text-white active:ring-theme-text-white/70 p-0 mr-2 flex items-center justify-center" (click)="onOpen(toggleValue)">
+      <svg class="h-8 w-8 text-theme-orange" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 18H10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 12L16 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> </g></svg>
+    </button>
 
-  <form class="relative mx-auto w-max" (ngSubmit)="onSubmit()">
-    <input [(ngModel)]="movieName" type="search" name="searching" class="peer text-theme-text-white cursor-pointer relative z-10 h-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full w-full focus:cursor-text focus:border-theme-orange focus:pl-16 md:pl-16 focus:pr-4 md:pr-4" placeholder="search a movie" />
-    <svg  xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-theme-text-white px-3.5 peer-focus:border-theme-orange peer-focus:stroke-theme-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    </svg>
-  </form>
+    <form class="relative mx-auto w-max" (ngSubmit)="onSubmit()">
+      <input [(ngModel)]="movieName" type="search" name="searching" class="peer text-theme-text-white cursor-pointer relative z-10 h-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full w-full focus:cursor-text focus:border-theme-orange focus:pl-16 md:pl-16 focus:pr-4 md:pr-4" placeholder="search a movie" />
+      <svg  xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-theme-text-white px-3.5 peer-focus:border-theme-orange peer-focus:stroke-theme-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </form>
+  </div>
 
-  <span class="md:flex-1"></span>
+
+  <span class="flex-1"></span>
   <div class="flex items-center justify-center gap-8 ">
     <div class="relative mt-1 hidden lg:block">
       <span class=" material-symbols-rounded transform -scale-x-100 text-theme-text-white text-3xl">

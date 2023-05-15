@@ -1,7 +1,7 @@
-<div class="flex relative flex-col gap-6">
-  <div class="flex gap-6 flex-col h-[314px] overflow-x-auto">
-    <div class="flex items-center gap-3" *ngFor="let avatar of avatars">
-      <div class="relative h-8 w-8 rounded-full">
+<div class="flex relative flex-col gap-4 sm:gap-5 md:gap-6">
+  <div class="flex gap-4 sm:gap-5 md:gap-6 flex-col h-[314px] overflow-x-auto">
+    <div class="flex items-center gap-2 md:gap-3" *ngFor="let avatar of avatars">
+      <div class="relative h-7 md:h-8 w-7 md:w-8 rounded-full">
         <img class="absolute object-cover rounded-full" src="{{avatar.avatarImg}}" alt="">
       </div>
       <p class="font-medium tracking-wide text-theme-gray">{{avatar.avatarName}}</p>

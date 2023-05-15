@@ -18,7 +18,7 @@ export class MovieService {
   base_url = 'https://api.themoviedb.org/3';
   api_key = 'b758c069835d80a48cbf9219d08a1282';
 
-  $toggle=new BehaviorSubject<boolean>(true)
+  $toggle=new BehaviorSubject<boolean>(false)
 
   constructor(private http: HttpClient) { }
 

@@ -5,9 +5,12 @@ import { MovieService } from 'src/app/services/movies.service';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
 })
+
 export class SidebarComponent {
-  sideNavOpened!:boolean
+  sideNavOpened:boolean = false
+
   constructor(private movieService:MovieService){}
+
   ngOnInit(): void {
     this.movieService.$toggle.subscribe({
       next:(data)=>{

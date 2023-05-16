@@ -12,8 +12,8 @@ export class NavbarComponent {
   toggleValue:boolean=true
 
   onOpen(Data:boolean){
-  this.toggleValue=!Data
-  this.movieService.$toggle.next(Data)
+    this.toggleValue=!Data
+    this.movieService.$toggle.next(Data)
   }
 
   movieName!:any

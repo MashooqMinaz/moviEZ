@@ -16,7 +16,7 @@ import { search, searchResult } from '../models/search';
 export class MovieService {
 
   base_url = 'https://api.themoviedb.org/3';
-  api_key = 'b758c069835d80a48cbf9219d08a1282';
+  api_key = 'ddd6ad59f226a26ccbb2e7b6d55a4e59';
 
   $toggle=new BehaviorSubject<boolean>(false)
 

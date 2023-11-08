@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { MovieService } from 'src/app/services/movies.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { MovieService } from 'src/app/services/movies.service';
 })
 
 export class SidebarComponent {
-  sideNavOpened:boolean = false
+  sideNavOpened!:boolean
+
+  mode:MatDrawerMode = 'side'
 
   constructor(private movieService:MovieService){}
 

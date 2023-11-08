@@ -38,7 +38,7 @@ export class ContentComponent {
   upcomingMovies!: Observable<upcomingResult[]>;
 
 
-  base_img='https://image.tmdb.org/t/p/original'
+  base_img='https://image.tmdb.org/t/p/w500'
 
   ngOnInit(): void {
     // ----------trending----------
